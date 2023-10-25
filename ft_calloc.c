@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aevstign <aevstign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arsenii <arsenii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 18:12:06 by aevstign          #+#    #+#             */
-/*   Updated: 2023/10/25 17:40:44 by aevstign         ###   ########.fr       */
+/*   Updated: 2023/10/26 00:58:36 by arsenii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void	*ptr;
 
 	ptr = (void *)malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	ft_memset(ptr, 0, nmemb * size);
 	return (ptr);
 }
 
@@ -38,6 +41,5 @@ void	*ft_calloc(size_t nmemb, size_t size)
 //       printf("%d ",a[i]);
 //    }
 //    free( a );
-   
 //    return(0);
 // }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aevstign <aevstign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arsenii <arsenii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 16:28:55 by aevstign          #+#    #+#             */
-/*   Updated: 2023/10/21 17:03:55 by aevstign         ###   ########.fr       */
+/*   Updated: 2023/10/26 00:30:46 by arsenii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strnstr(const char *str1, const char *str2, size_t n)
 	c = *str2;
 	if (c == '\0')
 		return ((char *)str1);
-	len = strlen(str2);
+	len = ft_strlen(str2);
 	while (len <= n--)
 	{
 		if (*str1 == c)

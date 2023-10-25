@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aevstign <aevstign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arsenii <arsenii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:15:23 by aevstign          #+#    #+#             */
-/*   Updated: 2023/10/25 17:31:54 by aevstign         ###   ########.fr       */
+/*   Updated: 2023/10/26 00:16:44 by arsenii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	if (n < 0)
 	{
-		ft_putchar_fd('-', c);
+		ft_putchar_fd('-', fd);
 		n = -n;
 	}
 	if (n >= 10)
@@ -37,11 +37,11 @@ void	ft_putnbr_fd(int n, int fd)
 // int main() {
 //     int fd = open("test.txt", O_WRONLY);
 //     if (fd == -1) {
-//         return 1;
+//         return (1);
 //     }
 
 //     ft_putnbr_fd(2141, fd);
 
 //     close(fd);
-//     return 0;
+//     return (0);
 // }
