@@ -3,75 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aevstign <aevstign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arsenii <arsenii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 18:23:00 by aevstign          #+#    #+#             */
-/*   Updated: 2023/10/25 17:54:19 by aevstign         ###   ########.fr       */
+/*   Updated: 2023/10/26 20:15:46 by arsenii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
+	char	*str;
+	size_t	i;
+	size_t	j;
 
+	str = (char *)malloc(sizeof(*s1) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
+		return (NULL);
 	i = 0;
-	while (src[i] != '\0')
+	j = 0;
+	while (s1[i])
 	{
-		dest[i] = src[i];
+		str[j++] = s1[i];
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-int	ft_compute_final_len(char **strings, int size, int sep_length)
-{
-	int	final_length;
-	int	i;
-
-	final_length = 0;
 	i = 0;
-	while (i < size)
+	while (s2[i])
 	{
-		final_length += ft_strlen(strings[i]);
-		final_length += sep_length;
+		str[j++] = s2[i];
 		i++;
 	}
-	final_length -= sep_length;
-	return (final_length);
-}
-
-char	*ft_strjoin(int size, char **strs, char *sep)
-{
-	int		full_length;
-	int		i;
-	char	*string;
-	char	*d;
-
-	if (size == 0)
-		return ((char *)malloc(sizeof(char)));
-	full_length = ft_compute_final_len(strs, size, ft_strlen(sep));
-	string = malloc((full_length + 1) * sizeof(char));
-	d = string;
-	if (!string)
-		return (0);
-	i = 0;
-	while (i < size)
-	{
-		ft_strcpy(string, strs[i]);
-		if (i < size - 1)
-			string += ft_strlen(strs[i]);
-		if (i++ < size - 1)
-		{
-			ft_strcpy(string, sep);
-			string += ft_strlen(sep);
-		}
-		i++;
-	}
-	*d = '\0';
-	return (string);
+	str[j] = 0;
+	return (str);
 }
 
 // int	main(void)
