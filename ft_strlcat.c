@@ -6,7 +6,7 @@
 /*   By: arsenii <arsenii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 17:48:47 by aevstign          #+#    #+#             */
-/*   Updated: 2023/10/26 12:40:13 by arsenii          ###   ########.fr       */
+/*   Updated: 2023/10/26 23:36:28 by arsenii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	src_len = 0;
 	while (dst_len < size && dst[dst_len])
 		dst_len++;
-	while (src[src_len])
-		src_len++;
+	src_len = ft_strlen(src);
 	if (size == 0 || dst_len == size)
 		return (dst_len + src_len);
 	i = 0;
-	while (i < size - dst_len - 1 && src[i])
+	while ((dst_len + i + 1) < size && src[i])
 	{
 		dst[dst_len + i] = src[i];
 		i++;
