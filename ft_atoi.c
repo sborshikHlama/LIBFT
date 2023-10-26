@@ -6,7 +6,7 @@
 /*   By: arsenii <arsenii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 15:21:47 by aevstign          #+#    #+#             */
-/*   Updated: 2023/10/26 00:17:26 by arsenii          ###   ########.fr       */
+/*   Updated: 2023/10/26 13:02:38 by arsenii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	is_whitespace(char c)
 		|| c == '\r');
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	sign;
 	int	result;
@@ -25,10 +25,10 @@ int	ft_atoi(char *str)
 	result = 0;
 	while (is_whitespace(*str))
 		str++;
-	while (*str == '-' || *str == '+')
+	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
-			sign *= -1;
+			sign = -1;
 		str++;
 	}
 	while (*str >= '0' && *str <= '9')

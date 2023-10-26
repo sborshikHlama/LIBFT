@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aevstign <aevstign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arsenii <arsenii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 13:55:34 by aevstign          #+#    #+#             */
-/*   Updated: 2023/10/25 17:05:20 by aevstign         ###   ########.fr       */
+/*   Updated: 2023/10/26 12:57:06 by arsenii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_strchr(const char *str, int c)
 			return ((char *)str);
 		str++;
 	}
+	if ((char)c == '\0')
+		return ((char *)str);
 	return (NULL);
 }
 
