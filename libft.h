@@ -6,7 +6,7 @@
 /*   By: arsenii <arsenii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 18:09:11 by aevstign          #+#    #+#             */
-/*   Updated: 2023/10/26 21:22:18 by arsenii          ###   ########.fr       */
+/*   Updated: 2023/10/27 16:29:23 by arsenii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <string.h>
 # include <unistd.h>
 
-int		ft_atoi(char *str);
+int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 int		ft_isalnum(int c);

@@ -6,9 +6,11 @@
 /*   By: arsenii <arsenii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 15:21:47 by aevstign          #+#    #+#             */
-/*   Updated: 2023/10/26 13:02:38 by arsenii          ###   ########.fr       */
+/*   Updated: 2023/10/27 16:28:51 by arsenii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 static int	is_whitespace(char c)
 {
@@ -31,7 +33,7 @@ int	ft_atoi(const char *str)
 			sign = -1;
 		str++;
 	}
-	while (*str >= '0' && *str <= '9')
+	while (ft_isdigit(*str))
 	{
 		result = result * 10 + (*str - '0');
 		str++;

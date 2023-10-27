@@ -6,7 +6,7 @@
 /*   By: arsenii <arsenii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 19:56:43 by aevstign          #+#    #+#             */
-/*   Updated: 2023/10/26 00:32:35 by arsenii          ###   ########.fr       */
+/*   Updated: 2023/10/27 10:25:58 by arsenii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,7 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
-
-	if (!s)
-		return ;
-	i = 0;
-	while (i < n)
-	{
-		*(char *)(s + i) = 0;
-		i++;
-	}
+	ft_memset(s, 0, n);
 }
 
 // int main () {

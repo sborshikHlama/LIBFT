@@ -6,7 +6,7 @@
 /*   By: arsenii <arsenii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 18:11:55 by aevstign          #+#    #+#             */
-/*   Updated: 2023/10/26 01:11:58 by arsenii          ###   ########.fr       */
+/*   Updated: 2023/10/27 12:01:58 by arsenii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,12 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	char	*d;
 	char	*s;
-	size_t	i;
 
-	if (!dst || !src)
-		return (NULL);
 	d = (char *)dst;
 	s = (char *)src;
-	i = 0;
-	while (i < n)
+	while (n--)
 	{
-		d[i] = s[i];
-		i++;
+		*d++ = *s++;
 	}
 	return ((void *)dst);
 }
