@@ -3,37 +3,65 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsenii <arsenii@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aevstign <aevstign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 19:36:25 by aevstign          #+#    #+#             */
-/*   Updated: 2023/10/26 14:07:03 by arsenii          ###   ########.fr       */
+/*   Updated: 2025/03/22 10:49:58 by aevstign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	copy_substr(char *dst, const char *src, size_t len, unsigned int start)
 {
 	size_t	i;
-	size_t	j;
-	char	*str;
 
-	str = (char *)malloc(sizeof(*s) * (len + 1));
-	if (!str)
-		return (NULL);
 	i = 0;
-	j = 0;
-	while (s[i])
+	while (i < len && src[start + i] != '\0')
 	{
-		if (i >= start && j < len)
-		{
-			str[j] = s[i];
-			j++;
-		}
+		dst[i] = src[start + i];
 		i++;
 	}
-	str[j] = 0;
-	return (str);
+	dst[i] = '\0';
+}
+
+char	*allocate(size_t *strlen, unsigned int start, size_t len)
+{
+	char	*res;
+
+	if (*strlen - start < len)
+		*strlen = *strlen - start;
+	else
+		*strlen = len;
+	res = (char *)malloc((*strlen + 1) * sizeof(char));
+	return (res);
+}
+
+char	*empty_string(void)
+{
+	char	*empty;
+
+	empty = (char *)malloc(1);
+	if (empty)
+		empty[0] = '\0';
+	return (empty);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*res;
+	size_t	strlen;
+
+	if (!s)
+		return (NULL);
+	strlen = ft_strlen(s);
+	if (start >= strlen)
+		return (empty_string());
+	res = allocate(&strlen, start, len);
+	if (res == NULL)
+		return (NULL);
+	copy_substr(res, s, strlen, start);
+	return (res);
 }
 
 // int	main(void)

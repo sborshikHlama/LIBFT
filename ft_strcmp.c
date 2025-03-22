@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aevstign <aevstign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 13:02:42 by arsenii           #+#    #+#             */
-/*   Updated: 2025/03/22 09:32:39 by aevstign         ###   ########.fr       */
+/*   Created: 2025/03/22 10:41:09 by aevstign          #+#    #+#             */
+/*   Updated: 2025/03/22 10:41:18 by aevstign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/**
- * Counts the number of nodes in a list.
- * @param lst: The beginning of the list
- * @return The length of the list
- */
-int	ft_lstsize(t_list *lst)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	t_list	*temp;
-	int		count;
+	int	i;
 
-	count = 0;
-	temp = lst;
-	while (temp)
+	i = 0;
+	while (s1[i] != '\0' || s2[i] != '\0')
 	{
-		temp = temp->next;
-		count++;
+		if (s1[i] != s2[i])
+		{
+			return ((unsigned char) s1[i] - (unsigned char) s2[i]);
+		}
+		i++;
 	}
-	return (count);
+	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 }

@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aevstign <aevstign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 13:02:42 by arsenii           #+#    #+#             */
-/*   Updated: 2025/03/22 09:32:39 by aevstign         ###   ########.fr       */
+/*   Created: 2025/03/22 09:54:58 by aevstign          #+#    #+#             */
+/*   Updated: 2025/03/22 10:53:18 by aevstign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
- * Counts the number of nodes in a list.
- * @param lst: The beginning of the list
- * @return The length of the list
+ * Iterates the list ’lst’ and applies the function
+ * ’f’ on the content of each node.
+ * @param lst The address of a pointer to a node.
+ * @param f The address of the function used to apply
+ * on the list items
  */
-int	ft_lstsize(t_list *lst)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*temp;
-	int		count;
+	t_list	*next;
 
-	count = 0;
-	temp = lst;
-	while (temp)
+	if (!lst || !f)
+		return ;
+	next = lst;
+	while (next)
 	{
-		temp = temp->next;
-		count++;
+		f(next->content);
+		next = next->next;
 	}
-	return (count);
 }

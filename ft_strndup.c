@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aevstign <aevstign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 13:02:42 by arsenii           #+#    #+#             */
-/*   Updated: 2025/03/22 09:32:39 by aevstign         ###   ########.fr       */
+/*   Created: 2025/03/22 10:39:50 by aevstign          #+#    #+#             */
+/*   Updated: 2025/03/22 10:40:15 by aevstign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/**
- * Counts the number of nodes in a list.
- * @param lst: The beginning of the list
- * @return The length of the list
- */
-int	ft_lstsize(t_list *lst)
+char	*ft_strndup(const char *src, size_t n)
 {
-	t_list	*temp;
-	int		count;
+	size_t	i;
+	char	*dup;
 
-	count = 0;
-	temp = lst;
-	while (temp)
+	dup = (char *)malloc((n + 1) * sizeof(char));
+	if (!dup)
+		return (NULL);
+	i = 0;
+	while (i < n && src[i])
 	{
-		temp = temp->next;
-		count++;
+		dup[i] = src[i];
+		i++;
 	}
-	return (count);
+	dup[i] = '\0';
+	return (dup);
 }
